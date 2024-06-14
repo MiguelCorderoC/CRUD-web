@@ -1,0 +1,63 @@
+<template>
+    <div class="programa">
+        <img :src="portada" alt="Portada de {{ titulo }}">
+        <ul>
+            <span class="titulo">{{ titulo }}</span>
+            <p></p>
+            <span class="descripcion">{{ descripcion }}</span>
+            <p></p>
+            <span class="categoria">{{ categoria }}</span>
+            <p></p>
+            <span class="ano">{{ ano }}</span>
+        </ul>
+    </div>
+</template>
+
+<script>
+export default {
+    props: {
+        titulo: {
+            type: String,
+            required: true
+        },
+        descripcion: {
+            type: String,
+            required: true
+        },
+        categoria: {
+            type: String,
+            required: true
+        },
+        ano: {
+            type: String,
+            required: true
+        },
+        portada: {
+            type: String,
+            required: true,
+            default: 'https://via.placeholder.com/150'
+        }
+    }
+}
+</script>
+
+<style scoped>
+.programa {
+    display: flex;
+    margin: 0 auto 15px;
+    width: 50%;
+}
+
+.programa img {
+    border-radius: 10px;
+    width: 150px;
+}
+
+.titulo {
+    font-size: 1.6em;
+}
+
+span {
+    font-size: 1.1em;
+}
+</style>
