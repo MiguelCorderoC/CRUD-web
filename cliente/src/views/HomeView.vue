@@ -6,13 +6,10 @@ import Programa from '@/components/Programa.vue';
   <main>
     <section class="sect-opciones">
       <input type="search">
-<<<<<<< HEAD
       <RouterLink to="/programas/agregar">
         <button>Agregar</button>
       </RouterLink>
-=======
       <button>Agregar</button>
->>>>>>> 46daf70e47f6ecb8f454c9fed1dd5185f185e8fa
     </section>
     <div v-if="programas.length > 0">
       <div v-for="(programa, index) in programas" :key="index">
