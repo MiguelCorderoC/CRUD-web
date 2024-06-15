@@ -50,18 +50,24 @@ export default {
 .sect-opciones {
   display: flex;
   justify-content: right;
+  margin-top: 1em;
+}
+
+.sect-opciones input {
+  border: 1px solid silver;
+  border-radius: 5px;
 }
 
 .sect-opciones button {
-  background-color: #A5DD9B;
+  background-color: #247e19;
   border: none;
   border-radius: 10px;
   color: white;
   cursor: pointer;
   font-size: 1.2em;
   height: 40px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 1em;
+  margin-right: 1em;
   width: 100px;
 }
 </style>

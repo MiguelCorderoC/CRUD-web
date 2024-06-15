@@ -57,6 +57,7 @@ export default {
     methods: {
         eliminarPrograma(id) {
             axios.delete('http://localhost:3000/api/programas/' + id);
+            alert('Programa eliminado con exito');
         }
     }
 }
@@ -94,5 +95,24 @@ span {
     display: flex;
     justify-content: right;
     margin-top: 10px;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1em;
+    height: 35px;
+    width: 100px;
+}
+
+.btn-editar {
+    background-color: #008DDA;
+}
+
+.btn-eliminar {
+    background-color: #E72929;
+    margin-left: 10px;
 }
 </style>
