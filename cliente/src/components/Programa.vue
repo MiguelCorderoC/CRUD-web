@@ -12,7 +12,9 @@
             <p></p>
             <span class="ano">{{ ano }}</span>
             <div class="acciones">
-                <button class="btn-editar">Editar</button>
+                <RouterLink to="#">
+                    <button class="btn-editar">Editar</button>
+                </RouterLink>
                 <button class="btn-eliminar" @click="eliminarPrograma(this.id)">Eliminar</button>
             </div>
         </ul>
@@ -67,6 +69,10 @@ export default {
     width: 50%;
 }
 
+ul {
+    width: 100%;
+}
+
 .programa img {
     border-radius: 10px;
     width: 150px;
@@ -85,7 +91,6 @@ span {
 }
 
 .acciones {
-    border: 1px solid red;
     display: flex;
     justify-content: right;
     margin-top: 10px;

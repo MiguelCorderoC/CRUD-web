@@ -6,7 +6,9 @@ import Programa from '@/components/Programa.vue';
   <main>
     <section class="sect-opciones">
       <input type="search">
-      <button>Agregar</button>
+      <RouterLink to="/programas/agregar">
+        <button>Agregar</button>
+      </RouterLink>
     </section>
     <div v-if="programas.length > 0">
       <div v-for="(programa, index) in programas" :key="index">
@@ -19,6 +21,7 @@ import Programa from '@/components/Programa.vue';
 
 <script>
 import axios from 'axios';
+import { RouterLink } from 'vue-router';
 
 export default {
   name: "HomeView",

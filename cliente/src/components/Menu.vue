@@ -1,6 +1,8 @@
 <template>
     <nav class="menu">
-        <img src="@/assets/logo.png" alt="">
+        <RouterLink to="/">
+            <img src="@/assets/logo.png" alt="">
+        </RouterLink>
         <ul>
             <span>CRUD</span>
             <br>
