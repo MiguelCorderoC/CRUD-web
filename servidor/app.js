@@ -86,8 +86,9 @@ app.put('/api/programas/:id', (req, res) => {
     const categoria = req.body.categoria
     const ano = req.body.ano
     const portada = req.body.portada
+    const id = req.params.id;
     const sql = 'UPDATE programas set nombre = ?, descripcion = ?, categoria = ?, ano = ?, portada = ? WHERE id = ?';
-    conexion.query(sql, [nombre, descripcion, categoria, ano, portada], (error, resultado) => {
+    conexion.query(sql, [nombre, descripcion, categoria, ano, portada, id], (error, resultado) => {
         if (error) {
             throw error;
         } else {
