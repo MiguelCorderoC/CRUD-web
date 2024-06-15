@@ -12,7 +12,7 @@
             <p></p>
             <span class="ano">{{ ano }}</span>
             <div class="acciones">
-                <RouterLink to="#">
+                <RouterLink :to="{ path: 'programas/' + this.id + '/editar' }">
                     <button class="btn-editar">Editar</button>
                 </RouterLink>
                 <button class="btn-eliminar" @click="eliminarPrograma(this.id)">Eliminar</button>
