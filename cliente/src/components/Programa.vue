@@ -2,6 +2,8 @@
     <div class="programa">
         <img :src="portada" alt="Portada de {{ titulo }}">
         <ul>
+            <span class="id">{{ id }}</span>
+            <br>
             <span class="titulo">{{ titulo }}</span>
             <p></p>
             <span class="descripcion">{{ descripcion }}</span>
@@ -9,13 +11,24 @@
             <span class="categoria">{{ categoria }}</span>
             <p></p>
             <span class="ano">{{ ano }}</span>
+            <div class="acciones">
+                <button class="btn-editar">Editar</button>
+                <button class="btn-eliminar" @click="eliminarPrograma(this.id)">Eliminar</button>
+            </div>
         </ul>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     props: {
+        id: {
+            type: String,
+            required: true
+        }
+        ,
         titulo: {
             type: String,
             required: true
@@ -36,6 +49,12 @@ export default {
             type: String,
             required: true,
             default: 'https://via.placeholder.com/150'
+        }
+    }
+    ,
+    methods: {
+        eliminarPrograma(id) {
+            axios.delete('http://localhost:3000/api/programas/' + id);
         }
     }
 }
@@ -59,5 +78,16 @@ export default {
 
 span {
     font-size: 1.1em;
+}
+
+.id {
+    display: none;
+}
+
+.acciones {
+    border: 1px solid red;
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
 }
 </style>
