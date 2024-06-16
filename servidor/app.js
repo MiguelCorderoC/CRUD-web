@@ -23,7 +23,7 @@ conexion.connect(function (error) {
 });
 
 const puerto = 3000;
-app.listen(puerto, function () {
+app.listen(puerto, '0.0.0.0', function () {
     console.log('Servidor activo desde http://localhost:' + puerto);
 });
 

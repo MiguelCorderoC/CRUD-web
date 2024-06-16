@@ -103,7 +103,7 @@ button {
     color: white;
     cursor: pointer;
     font-size: 1.1em;
-    height: 35px;
+    height: 40px;
     width: 100px;
 }
 

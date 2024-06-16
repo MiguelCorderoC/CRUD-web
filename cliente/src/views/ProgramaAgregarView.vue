@@ -21,6 +21,7 @@
         </form>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
 
@@ -42,27 +43,29 @@ export default {
     },
     methods: {
         agregarPrograma() {
-            axios.post('http://localhost:3000/api/programas', this.model.programa).then(res => {
-                if (res.data.affectedRows === 1) {
-                    this.model.programa = {
-                        nombre: '',
-                        descripcion: '',
-                        categoria: '',
-                        ano: '',
-                        portada: ''
-                    };
-                    this.mensaje = 1;
+            axios.post('http://localhost:3000/api/programas', this.model.programa)
+                .then(res => {
+                    if (res.data.affectedRows === 1) {
+                        this.model.programa = {
+                            nombre: '',
+                            descripcion: '',
+                            categoria: '',
+                            ano: '',
+                            portada: ''
+                        };
+                        this.mensaje = 1;
+                        setTimeout(() => {
+                            this.mensaje = 0;
+                        }, 10000); // Oculta el mensaje después de 10 segundos
+                    }
+                })
+                .catch(error => {
+                    console.error("Error al agregar el programa:", error);
+                    this.mensaje = 2;
                     setTimeout(() => {
                         this.mensaje = 0;
-                    }, 10000);
-                }
-            }).catch(error => {
-                console.error("Error al agregar el programa:", error);
-                this.mensaje = 2;
-                setTimeout(() => {
-                    this.mensaje = 0;
-                }, 10000);
-            });
+                    }, 10000); // Oculta el mensaje después de 10 segundos
+                });
         }
     }
 };
@@ -78,6 +81,16 @@ export default {
 .mensaje-exito {
     background-color: #9cf185;
     border: 3px solid #247e19;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 1em;
+}
+
+.mensaje-error {
+    background-color: #f18b85;
+    border: 3px solid #e61919;
     border-radius: 10px;
     color: white;
     text-align: center;
@@ -136,7 +149,7 @@ export default {
     position: absolute;
     top: 10px;
     left: 5px;
-    transform: translateY(-15px);
+    transform: translateY(-10px);
     transition: transform .3s, color .3s;
     pointer-events: none;
 }
